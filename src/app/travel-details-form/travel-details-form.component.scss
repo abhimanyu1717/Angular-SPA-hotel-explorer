@@ -1,0 +1,16 @@
+.date-picker-conatiner {
+    width: 120px !important;
+}
+
+.guest-btn{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    margin-right: 15px;
+    border-radius: 50%;
+    cursor:pointer;
+}
+.guest-btn:focus
+{
+    background:olive;
+}
