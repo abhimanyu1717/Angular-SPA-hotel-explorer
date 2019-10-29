@@ -19,13 +19,13 @@ export class HtppService {
   constructor(private http: HttpClient, private datePipe: DatePipe) { }
 
   initSearch(_travelDetails) {
-    return this.http.post(this.searchInitURL, this.getInitRequestObj(_travelDetails), this.httpOptions);
+    return this.http.post(this.searchInitURL, this.getInitRequestObj(_travelDetails));
   }
   searchStatus(_requestObj) {
-    return this.http.post(this.searchStatusURL, _requestObj, this.httpOptions);
+    return this.http.post(this.searchStatusURL, _requestObj);
   }
   searchResult(_requestObj) {
-    return this.http.post(this.searchResultURL, this.getResultRequestObj(_requestObj), this.httpOptions);
+    return this.http.post(this.searchResultURL, this.getResultRequestObj(_requestObj));
   }
   getInitRequestObj(_travelDetails) {
     const requestBody = {
