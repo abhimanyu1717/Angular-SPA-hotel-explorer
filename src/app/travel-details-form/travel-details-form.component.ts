@@ -7,7 +7,7 @@ import { HtppService} from './../htpp.service';
   styleUrls: ['./travel-details-form.component.scss']
 })
 export class TravelDetailsFormComponent implements OnInit {
-
+   hotelDetails:any =[];
   constructor(private htppService:HtppService) { }
 
   ngOnInit() {
@@ -42,8 +42,9 @@ export class TravelDetailsFormComponent implements OnInit {
     });
   }
   getSearchResult(_sessionIdObj) {
-   this.htppService.searchResult(_sessionIdObj).subscribe( (res) => {
-      console.log(res);
+   this.htppService.searchResult(_sessionIdObj).subscribe( (res:any) => {
+    this.hotelDetails = res.hotels; 
+    console.log(res);
    });
   }
 

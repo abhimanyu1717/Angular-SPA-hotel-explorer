@@ -8,8 +8,10 @@ import {MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModul
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { DatePipe } from '@angular/common';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 
+import { DatePipe } from '@angular/common';
 import { TravelDetailsFormComponent } from './travel-details-form/travel-details-form.component';
 import { HotelDetailsTableComponent } from './hotel-details-table/hotel-details-table.component';
 

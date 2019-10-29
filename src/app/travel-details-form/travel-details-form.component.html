@@ -1,45 +1,90 @@
 <div class="container" style="padding: 50px;" [formGroup]="travelDetails">
+  <ng-template [ngIf]="hotelDetails.length === 0 ">
     <div class="row">
-        <div class="col-12">
-          <p style="font-weight: bold;">Search Form Page</p>
-          <hr>
+      <div class="col-12">
+        <p style="font-weight: bold;">Search Form Page</p>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputdefault">Where are you going?</label>
+          <input class="form-control" id="inputdefault" type="text" formControlName="placeName">
         </div>
       </div>
-  <div class="row">
-    <div class="col-6">
-      <div class="form-group">
-        <label for="inputdefault">Where are you going?</label>
-        <input class="form-control" id="inputdefault" type="text" formControlName="placeName">
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <mat-form-field class="date-picker-conatiner">
+          <input matInput [matDatepicker]="checkIn" placeholder="Check-in" formControlName="checkInDate">
+          <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
+          <mat-datepicker #checkIn></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field class="date-picker-conatiner">
+          <input matInput [matDatepicker]="checkOut" placeholder="Check-out" formControlName="checkOutDate">
+          <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
+          <mat-datepicker #checkOut></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <label>Guest</label>
+        <div>
+          <button type="submit" class="guest-btn" id="one" (click)="getNoOfGuest(1)">1</button>
+          <button type="submit" class="guest-btn" id="two" (click)="getNoOfGuest(2)">2</button>
+          <button type="submit" class="guest-btn" id="one" (click)="getNoOfGuest(3)">3+</button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-2">
-      <mat-form-field class="date-picker-conatiner">
-        <input matInput [matDatepicker]="checkIn" placeholder="Check-in" formControlName="checkInDate">
-        <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
-        <mat-datepicker #checkIn></mat-datepicker>
-      </mat-form-field>
-    </div>
-    <div class="col-2">
-      <mat-form-field class="date-picker-conatiner">
-        <input matInput [matDatepicker]="checkOut" placeholder="Check-out" formControlName="checkOutDate">
-        <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
-        <mat-datepicker #checkOut></mat-datepicker>
-      </mat-form-field>
-    </div>
-    <div class="col-2">
-      <label>Guest</label>
-      <div>
-        <button type="submit" class="guest-btn" id="one" (click)="getNoOfGuest(1)">1</button>
-        <button type="submit" class="guest-btn" id="two" (click)="getNoOfGuest(2)" >2</button>
-        <button type="submit" class="guest-btn" id="one" (click)="getNoOfGuest(3)">3+</button>
+    <div class="row">
+      <div class="col-12">
+        <button type="button" class="btn btn-primary" (click)="initSearch()">Search for Hotels</button>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <button type="button" class="btn btn-primary" (click)="initSearch()">Search for Hotels</button>
+  </ng-template>
+
+  <ng-template [ngIf]="hotelDetails.length > 0 ">
+    <div class="row">
+      <div class="col-12">
+        <p style="font-weight: bold;">Search Result Page</p>
+        <hr>
+      </div>
     </div>
-  </div>
+    <div class="row search-result-form-container">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="inputdefault">Where</label>
+          <input class="form-control" id="inputdefault" type="text" formControlName="placeName">
+        </div>
+      </div>
+      <div class="col-2">
+        <mat-form-field class="date-picker-conatiner">
+          <input matInput [matDatepicker]="checkIn" placeholder="Check-in" formControlName="checkInDate">
+          <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
+          <mat-datepicker #checkIn></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <mat-form-field class="date-picker-conatiner">
+          <input matInput [matDatepicker]="checkOut" placeholder="Check-out" formControlName="checkOutDate">
+          <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
+          <mat-datepicker #checkOut></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-2">
+        <label>Guest</label>
+        <div>
+          <button type="submit" class="guest-btn" id="one" (click)="getNoOfGuest(1)">1</button>
+          <button type="submit" class="guest-btn" id="two" (click)="getNoOfGuest(2)">2</button>
+          <button type="submit" class="guest-btn" id="one" (click)="getNoOfGuest(3)">3+</button>
+        </div>
+      </div>
+      <div class="col-2">
+          <button type="button" class="btn btn-primary small-btn" (click)="initSearch()">Search for Hotels</button>
+        </div>
+    </div>
+  </ng-template>
+  <app-hotel-details-table *ngIf="hotelDetails.length > 0 " [hotels]="hotelDetails"></app-hotel-details-table>
 </div>

@@ -1,0 +1,40 @@
+
+.small-btn{
+    background: #ff9900;
+    font-size: 12px;
+    border: 1px solid #ff9900;
+}
+.hotel-dt-header {
+    padding: 20px 0px 20px 0px;
+}
+.hotel-details-container {
+    border: 1px solid #bfbfbf;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.hotel-name{
+    display: block;
+    font-size: 16px;
+}
+.hotel-address{
+    display: block;
+    font-size: 12px;
+}
+.rate-container {
+    float: right;
+    clear: both;
+}
+.rate-container .rate-from{
+    display: block;
+    font-size: 10px;
+}
+.rate-container .rate-per{
+    font-size: 18px;
+}
+.rate-container .rate-durationg{
+    font-size: 12px;
+}
+.rate-container .rate-total{
+    display: block;
+    font-size: 12px;
+}

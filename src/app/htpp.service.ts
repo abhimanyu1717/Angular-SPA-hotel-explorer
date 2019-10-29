@@ -5,9 +5,11 @@ import { DatePipe } from '@angular/common';
   providedIn: 'root'
 })
 export class HtppService {
-  searchInitURL = 'https://public-be.oski.io/hotel/v1.0/search/init';
-  searchStatusURL = 'https://public-be.oski.io/hotel/v1.0/search/status';
-  searchResultURL = 'https://public-be.oski.io/hotel/v1.0/search/results';
+   public searchInitURL: string  = 'https://public-be.oski.io/hotel/v1.0/search/init';
+   public searchStatusURL: string  = 'https://public-be.oski.io/hotel/v1.0/search/status';
+   public searchResultURL: string  = 'https://public-be.oski.io/hotel/v1.0/search/results';
+
+ 
   httpOptions = {
     headers: new HttpHeaders({
       'oski-tenantId': 'Demo',

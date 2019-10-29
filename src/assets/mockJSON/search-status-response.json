@@ -1,0 +1,22 @@
+{
+    "status": "Complete",
+    "hotelCount": 1365,
+    "completedSuppliers": [
+        {
+            "id": "hbgau0qwow",
+            "family": "ean",
+            "name": "ean"
+        },
+        {
+            "id": "15j49zs0kjk",
+            "family": "HotelBeds",
+            "name": "hotelbeds"
+        },
+        {
+            "id": "1vyotdri39c",
+            "family": "Ean",
+            "name": "EANRetail"
+        }
+    ],
+    "errors": []
+}
