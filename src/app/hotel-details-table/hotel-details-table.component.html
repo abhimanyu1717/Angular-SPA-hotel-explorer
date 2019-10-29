@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12">
-    <h4 class="hotel-dt-header">180 hotels in Las Vegas, NV, USA on April 22nd -April 24th for 1 adult(s)</h4>
+    <h4 class="hotel-dt-header">{{hotels.length}} hotels in {{hoteldetails.placeName}} on {{hoteldetails.checkInDate | date:'MMMM'}} {{hoteldetails.checkInDate | date:'d'}}nd -{{hoteldetails.checkOutDate | date:'MMMM'}} {{hoteldetails.checkOutDate | date:'d'}}th for 1 adult(s)</h4>
   </div>
 </div>
 <div class="row hotel-details-container" *ngFor="let hotel of hotels">
