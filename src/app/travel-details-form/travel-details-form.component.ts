@@ -8,6 +8,7 @@ import { HtppService} from './../htpp.service';
 })
 export class TravelDetailsFormComponent implements OnInit {
    hotelDetails:any =[];
+   showSpinner: boolean = false ;
   constructor(private htppService:HtppService) { }
 
   ngOnInit() {
@@ -26,12 +27,14 @@ export class TravelDetailsFormComponent implements OnInit {
   }
   initSearch(){
     console.log(this.travelDetails.value)
+    this.showSpinner = true;
     this.htppService.initSearch(this.travelDetails.value).subscribe( (response) => {
         this.getSearchStatus(response);
     });
   }
 
   getSearchStatus(_sessionIdObj) {
+    
     this.htppService.searchStatus(_sessionIdObj).subscribe((res:any) => {
         if(res.status === 'Complete') {
            this.getSearchResult(_sessionIdObj);
@@ -43,6 +46,7 @@ export class TravelDetailsFormComponent implements OnInit {
   }
   getSearchResult(_sessionIdObj) {
    this.htppService.searchResult(_sessionIdObj).subscribe( (res:any) => {
+    this.showSpinner = false;
     this.hotelDetails = res.hotels; 
     console.log(res);
    });
